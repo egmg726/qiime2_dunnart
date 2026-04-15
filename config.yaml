@@ -71,7 +71,7 @@ episodes:
 - 04-phylogenetic-tree.Rmd
 - 05-visualisation.Rmd
 - 06-exporting-data.Rmd
-- 07-extra-info.Rmd
+#- 07-extra-info.Rmd
 
 # Information for Learners
 learners:
