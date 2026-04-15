@@ -10,20 +10,20 @@
 # incubator: The Carpentries Incubator
 # Note that you can also use a custom carpentry type. For more info,
 # see the documentation: https://carpentries.github.io/sandpaper-docs/editing.html
-carpentry: 'incubator'
+carpentry: 'uom'
 
 # Custom carpentry description
 # This will be used as the alt text for the logo
 # carpentry_description: "Custom Carpentry"
 
 # Overall title for pages.
-title: 'Lesson Title'
+title: 'Metabarcoding of bacteria in dunnart faecal samples across Australia (wild + captive)'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: '2026-04-02'
 
 # Comma-separated list of keywords for the lesson
-keywords: 'software, data, lesson, The Carpentries'
+keywords: 'metabarcoding,bioinformatics'
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
@@ -39,7 +39,7 @@ source: 'https://example.com/template-source/lesson-example'
 branch: 'main'
 
 # Who to contact if there are any issues
-contact: 'team@carpentries.org'
+contact: 'bioinformatics-training@unimelb.edu.au'
 
 # Navigation ------------------------------------------------
 #
@@ -64,17 +64,23 @@ contact: 'team@carpentries.org'
 # - another-learner.md
 
 # Order of episodes in your lesson
-episodes: 
-- introduction.Rmd
+episodes:
+- 01-background.Rmd
+- 02-import.Rmd
+- 03-taxonomy.Rmd
+- 04-phylogenetic-tree.Rmd
+- 05-visualisation.Rmd
+- 06-exporting-data.Rmd
+- 07-extra-info.Rmd
 
 # Information for Learners
-learners: 
+learners:
 
 # Information for Instructors
-instructors: 
+instructors:
 
 # Learner Profiles
-profiles: 
+profiles:
 
 # Customisation ---------------------------------------------
 #
@@ -82,3 +88,5 @@ profiles:
 # sandpaper and varnish versions) should live
 
 
+varnish: melbournebioinformatics/uom-varnish@main
+url: melbournebioinformatics.github.io/uom-varnish

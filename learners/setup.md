@@ -2,17 +2,60 @@
 title: Setup
 ---
 
-FIXME: Setup instructions live in this document. Please specify the tools and
-the data sets the Learner needs to have installed.
 
-## Data Sets
+## Author Information
+Developed by: Dr. Ashley Dungan and Dr. Gayle Philip 
+School of Biosciences, University of Melbourne; Melbourne Bioinformatics
 
-<!--
-FIXME: place any data you want learners to use in `episodes/data` and then use
-       a relative link ( [data zip file](data/lesson-data.zip) ) to provide a
-       link to it, replacing the example.com link.
--->
-Download the [data zip file](https://example.com/FIXME) and unzip it to your Desktop
+Created/Reviewed: April 2026
+
+
+## Overview
+
+
+This page outlines the steps, beginning with raw data from the sequencing facility, that were followed to produce the 16S rRNA metabarocoding files used in R for data analysis. All intermediate .qza and .qzv files are provided. This data processing was completed in QIIME2 v2026.1 by Ashley Dungan in March 2026. 
+
+Anticipated workshop duration when delivered to a group of participants is **4 hours**.  
+
+For queries relating to this workshop, contact Melbourne Bioinformatics (bioinformatics-training@unimelb.edu.au).
+
+
+## Learning Objectives
+
+At the end of this introductory workshop, you will:
+
+* Take raw data from a sequencing facility and end with publication quality graphics and statistics
+* Answer the question *What is the influence of captivity on gut microbiota of the fat-tailed dunnart?*
+
+
+## Slides and workshop instructions
+
+
+Click <a href="../media/*.pdf" type="application/pdf" target="_blank">here</a> for slides presented during this workshop.
+Click <a href="../*.pdf" type="application/pdf" target="_blank">here</a> for a printer friendly PDF version of this workshop.
+
+
+
+## Data
+
+Data from the Walter and Eliza Hall Institute (WEHI) came as paired-end, demultiplexed (.fastq) files with primers and overhang sequences still attached still attached. Raw files are stored on Mediaflux and were transfered directly to my Melbourne Research Cloud (MRC) instance. File names were adjusted and gzipped to satisfy QIIME2 requirments (+_+_+_L(0-9)(0-9)(0-9)_R(1-2)_001.fastq.gz). 
+
+Samples were sequenced on a single NextSeq run.
+
+### Downloading data
+
+* No additional data needs to be downloaded for this workshop - it is all located on the Nectar Instance. FASTQs are located in the directory `raw_data` and a metadata (`dunnart_metadata.tsv`) file has also been provided.
+
+* If you wish to analyse the data independently at a later stage, it can be downloaded from [here](https://zenodo.org/records/10158305). This link contains both the FASTQs and associated metadata file.
+
+* If you are running this tutorial independently, you can also access the classifier that has been trained specifically for this data from [here](https://www.dropbox.com/scl/fi/s42p5fif7szzm38swcu0m/silva_138_16s_515-806_classifier.qza?rlkey=ss983qau9rwgztis2gfulhjcz&dl=0).
+
+
+## Prequisites
+
+This workshop is designed for participants with command-line knowledge. You will need to be able to `ssh` into a remote machine, navigate the directory structure and `scp` files from a remote computer to your local computer.
+
+
 
 ## Software Setup
 
@@ -20,10 +63,11 @@ Download the [data zip file](https://example.com/FIXME) and unzip it to your Des
 
 ### Details
 
-Setup for different systems can be presented in dropdown menus via a `solution`
-tag. They will join to this discussion block, so you can give a general overview
-of the software used in this lesson here and fill out the individual operating
-systems (and potentially add more, e.g. online setup) in the solutions blocks.
+For an in-person workshop, you will need access to Nectar instances.
+Login information will be provided to you prior to the workshop start date.
+You can find more information about Nectar instances [here](https://mbite.mdhs.unimelb.edu.au/nectar-instances/).
+
+You will need to use a Google Chrome or Mozilla Firefox web browser to view files in QIIME2 View.
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -51,4 +95,21 @@ Use Terminal.app
 Use Terminal
 
 :::::::::::::::::::::::::
+
+### Before the start of the session:
+
+*Whenever you log in*
+Start byobu window manager <byobu -S qiime2>. If you get booted off the session, you can get back on with <byobu -S qiime2 attach-session -t 1>.
+  
+```
+# Things to do when terminal is opened up, at the start of each session
+byobu -S qiime2
+conda activate qiime2-amplicon-2026.1
+
+#need to make a directory for temporary files in the volume storage
+rm -r ~/data/tmp
+mkdir ~/data/tmp
+export TMPDIR=~/data/tmp
+echo $TMPDIR #should print ~/data/tmp
+```
 
