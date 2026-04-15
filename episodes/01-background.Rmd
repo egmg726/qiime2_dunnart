@@ -64,7 +64,7 @@ In order to use QIIME2 View to visualise your files, you will need to use a Goog
 
 :::
 
-As this workshop is being run on a remote Nectar Instance, you will need to [download the visual files (<fn>*.qzv</fn>) to your local computer](https://www.melbournebioinformatics.org.au/tutorials/tutorials/workshop_delivery_mode_info/workshops_nectar/#transferring-files-between-your-computer-and-nectar-instance) and view them in [QIIME2 View](https://view.qiime2.org) (q2view).
+As this workshop is being run on a remote Nectar Instance, you will need to [download the visual files (*.qzv) to your local computer](https://www.melbournebioinformatics.org.au/tutorials/tutorials/workshop_delivery_mode_info/workshops_nectar/#transferring-files-between-your-computer-and-nectar-instance) and view them in [QIIME2 View](https://view.qiime2.org) (q2view).
 
 
 ::: callout
