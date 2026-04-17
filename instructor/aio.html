@@ -592,11 +592,11 @@ truncation lengths to balance read quality and merge overlap.</li>
 <div class="section level3">
 <h3 id="import-data">Import data<a class="anchor" aria-label="anchor" href="#import-data"></a>
 </h3>
-<p>These <a href="#the-study">samples</a> were sequenced on a single
-Illumina NextSeq run at the Walter and Eliza Hall Institute (WEHI),
-Melbourne, Australia. Data from WEHI came as paired-end, demultiplexed,
-unzipped <fn>*.fastq</fn> files with adapters still attached. Following
-the <a href="https://amplicon-docs.qiime2.org/en/stable/how-to-guides/how-to-import.html" class="external-link">QIIME2
+<p>These <a href="./index.html#data">samples</a> were sequenced on a
+single Illumina NextSeq run at the Walter and Eliza Hall Institute
+(WEHI), Melbourne, Australia. Data from WEHI came as paired-end,
+demultiplexed, unzipped *.fastq files with adapters still attached.
+Following the <a href="https://amplicon-docs.qiime2.org/en/stable/how-to-guides/how-to-import.html" class="external-link">QIIME2
 importing tutorial</a>, this is the Casava One Eight format. The files
 have been renamed to satisfy the Casava format as
 SampleID_FWDXX-REVXX_L001_R[1 or 2]_001.fastq
@@ -628,8 +628,9 @@ e.g. <code>qiime tools import --help</code></p>
 <div class="callout-inner">
 <div class="callout-content">
 <p>If you haven’t already done so, make sure you are running the
-workshop in <a href="#byobu-screen">byobu-screen</a> and have created
-the symbolic links to the <a href="#symbolic-links-to-workshop-data">workshop data</a>.</p>
+workshop in <a href="./index.html#initial-set-up-on-nectar">byobu-screen</a> and have
+created the symbolic links to the <a href="../(./index.html#symbolic-links-to-workshop-data)">workshop
+data</a>.</p>
 </div>
 </div>
 </div>
@@ -1089,7 +1090,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-03-taxonomy"><p>Content from <a href="03-taxonomy.html">Taxonomic Analysis</a></p>
 <hr>
-<p>Last updated on 2026-04-15 |
+<p>Last updated on 2026-04-17 |
 
         <a href="https://example.com/template-source/lesson-example/edit/main/episodes/03-taxonomy.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 12 minutes</p>
@@ -1162,8 +1163,8 @@ cores</p>
 classifier</a> used here is only appropriate for the specific 16S rRNA
 region that <em>this</em> data represents. You will need to train your
 own classifier for your own data. For more information about training
-your own classifier, see <a href="#train-silva-v138-classifier-for-16s18s-rrna-gene-marker-sequences">Section
-6: Extra Information</a>.</p>
+your own classifier, see <a href="./07-extra-info.html#train-silva-v138-classifier-for-16s18s-rrna-gene-marker-sequences-">Extra
+Information</a>.</p>
 </div>
 </div>
 </div>
@@ -2070,7 +2071,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-07-extra-info"><p>Content from <a href="07-extra-info.html">Extra Information</a></p>
 <hr>
-<p>Last updated on 2026-04-16 |
+<p>Last updated on 2026-04-17 |
 
         <a href="https://example.com/template-source/lesson-example/edit/main/episodes/07-extra-info.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 12 minutes</p>
@@ -2111,12 +2112,19 @@ artefacts (e.g. poly‑G tails) and when to perform standalone cutadapt
 <section><h2 class="section-heading" id="extra-information">Extra Information<a class="anchor" aria-label="anchor" href="#extra-information"></a>
 </h2>
 <hr class="half-width">
-<div class="section level4 warning">
-<h4 id="stop">STOP<a class="anchor" aria-label="anchor" href="#stop"></a>
-</h4>
+<div id="stop" class="callout caution">
+<div class="callout-square">
+<i class="callout-icon" data-feather="alert-triangle"></i>
+</div>
+<span class="callout-header">Caution</span>
+<div id="stop" class="callout-inner">
+<h3 class="callout-title">STOP</h3>
+<div class="callout-content">
 <p>This section contains information on how to train the classifier for
 analysing your <strong>own</strong> data. This will <strong>NOT</strong>
 be covered in the workshop.</p>
+</div>
+</div>
 </div>
 <div class="section level3">
 <h3 id="train-silva-v138-classifier-for-16s18s-rrna-gene-marker-sequences-">Train SILVA v138 classifier for 16S/18S rRNA gene marker
