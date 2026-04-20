@@ -22,10 +22,10 @@ exercises: 2
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-## Section 2: Taxonomic Analysis
+## Taxonomic Analysis
 
 ### Assign taxonomy
-Here we will classify each identical read or *Amplicon Sequence Variant (ASV)* to the highest resolution based on a database. Common databases for bacteria datasets are [SILVA](https://www.arb-silva.de/), [Ribosomal Database Project](http://rdp.cme.msu.edu/), or [Genome Taxonomy Database](https://gtdb.ecogenomic.org/). See [Porter and Hajibabaei, 2020](https://www.frontiersin.org/articles/10.3389/fevo.2020.00248/full) for a review of different classifiers for metabarcoding research. The classifier chosen is dependent upon:
+Here we will classify each identical read or *Amplicon Sequence Variant (ASV)* to the highest resolution based on a database. Common databases for bacteria datasets are [SILVA](https://www.arb-silva.de/), [Ribosomal Database Project](http://rdp.cme.msu.edu/)*, or [Genome Taxonomy Database](https://gtdb.ecogenomic.org/). See [Porter and Hajibabaei, 2020](https://www.frontiersin.org/articles/10.3389/fevo.2020.00248/full) for a review of different classifiers for metabarcoding research. The classifier chosen is dependent upon:
 
 1. Previously published data in a field
 2. The target region of interest
@@ -36,6 +36,14 @@ A classifier has already been trained for you for the V4 region of the bacterial
 
 
 `n_jobs = 1`  This runs the script using all available cores
+
+::: spoiler
+
+#### *A Note on the Ribosomal Data Project
+
+As of the time of writing, the Ribosomal Data Project website is no longer available. You can find a standalone version of the RDP Classifier 2.14 released in August 2023 on [Sourgeforce](https://sourceforge.net/p/rdp-classifier/news/2023/08/rdp-classifier-214-august-2023-released/) and [Zenodo](https://zenodo.org/records/10367203).
+
+:::
 
 ::: callout
 
@@ -112,11 +120,11 @@ qiime taxa filter-table \
 ```
 
 ```bash
-qiime feature-table summarize \
---i-table analysis/taxonomy/16s_table_filtered.qza \
---m-sample-metadata-file dunnart_metadata.tsv \
---o-visualization analysis/visualisations/summary_table_filtered \
---verbose
+qiime feature-table summarize \ 
+--i-table analysis/taxonomy/16s_table_filtered.qza \ 
+--m-metadata-file dunnart_metadata.tsv \ 
+--output-dir analysis/visualisations/summary_table_filtered \ 
+--verbose 
 ```
 
 
