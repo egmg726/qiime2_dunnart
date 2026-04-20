@@ -545,7 +545,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-02-import"><p>Content from <a href="02-import.html">Importing, cleaning and quality control of the data</a></p>
 <hr>
-<p>Last updated on 2026-04-17 |
+<p>Last updated on 2026-04-20 |
 
         <a href="https://example.com/template-source/lesson-example/edit/main/episodes/02-import.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 12 minutes</p>
@@ -841,7 +841,7 @@ your local computer and view in <a href="https://view.qiime2.org" class="externa
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fm484d0ukdn9n7a2gdw7hh%2Ftrimmed_sequences.qzv%3Frlkey%3Dta8bbyyuz6ucpyn4jymx78bp2%26dl%3D1" class="external-link">Click
 to view the <strong><code>trimmed_sequences.qzv</code></strong> file in
@@ -872,11 +872,6 @@ corresponding position.</p>
 sizes and available computational power.</p>
 <p>Remember to adjust <code>--p-trunc-len-f</code> and
 <code>--p-trunc-len-r</code> according to your own data.</p>
-<p>Overlap = (forward truncation length + reverse truncation length) −
-amplicon length.</p>
-<p>For this amplicon, the expected length is ~255 bp. Try a few sensible
-truncation-length combinations and compare read retention and merging
-success.</p>
 </div>
 </div>
 </div>
@@ -912,6 +907,42 @@ running the command at the same time.</p>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1" aria-label="code-block-6-6"></a>--p-pooling-method <span class="st">'pseudo'</span> <span class="dt">\</span></span>
 <span id="cb6-7"><a href="#cb6-7" tabindex="-1" aria-label="code-block-6-7"></a>--output-dir analysis/dada2out <span class="dt">\</span></span>
 <span id="cb6-8"><a href="#cb6-8" tabindex="-1" aria-label="code-block-6-8"></a>--verbose</span></code></pre>
+</div>
+<div id="calculating-truncation-lengths" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="calculating-truncation-lengths" class="callout-inner">
+<h3 class="callout-title">Calculating truncation lengths</h3>
+<div class="callout-content">
+<p>The above code for you likely didn’t work if you didn’t adjust the
+truncation length from <code>xxx</code> to an integer!</p>
+<p>Overlap = (forward truncation length + reverse truncation length) −
+amplicon length.</p>
+<p>For this amplicon, the expected length is ~255 bp. Try a few sensible
+truncation-length combinations and compare read retention and merging
+success.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1" aria-label="code-block-7-2"></a><span class="ex">--p-trunc-len-f</span> 210 <span class="dt">\ </span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1" aria-label="code-block-7-3"></a><span class="ex">--p-trunc-len-r</span> 170 <span class="dt">\ </span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section level3">
@@ -952,13 +983,13 @@ may need to be excluded later.</p></li>
 </div>
 </div>
 </div>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a><span class="ex">qiime</span> metadata tabulate <span class="dt">\</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1" aria-label="code-block-7-2"></a>--m-input-file analysis/dada2out/denoising_stats.qza <span class="dt">\</span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1" aria-label="code-block-7-3"></a>--o-visualization analysis/visualisations/16s_denoising_stats.qzv <span class="dt">\</span></span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1" aria-label="code-block-7-4"></a>--verbose</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1" aria-label="code-block-8-1"></a><span class="ex">qiime</span> metadata tabulate <span class="dt">\</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1" aria-label="code-block-8-2"></a>--m-input-file analysis/dada2out/denoising_stats.qza <span class="dt">\</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1" aria-label="code-block-8-3"></a>--o-visualization analysis/visualisations/16s_denoising_stats.qzv <span class="dt">\</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1" aria-label="code-block-8-4"></a>--verbose</span></code></pre>
 </div>
 <div id="visualisation-denoising-stats" class="callout challenge">
 <div class="callout-square">
@@ -973,12 +1004,12 @@ your local computer and view in QIIME 2 View (q2view).</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fhwpyu01wm0ubb82wbb1dt%2F16s_denoising_stats.qzv%3Frlkey%3Dkuc0zfuozlpzr0c49sxhr96m7%26dl%3D1" class="external-link">Click
 to view the <strong><code>16s_denoising_stats.qzv</code></strong> file
@@ -988,14 +1019,14 @@ in QIIME 2 View</a>.</p>
 </div>
 </div>
 <p><br></p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1" aria-label="code-block-8-1"></a><span class="ex">qiime</span> feature-table summarize <span class="dt">\</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1" aria-label="code-block-8-2"></a>--i-table analysis/dada2out/table.qza <span class="dt">\</span></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1" aria-label="code-block-8-3"></a>--m-sample-metadata-file dunnart_metadata.tsv <span class="dt">\</span></span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1" aria-label="code-block-8-4"></a>--o-visualization analysis/visualisations/summary_table <span class="dt">\</span></span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1" aria-label="code-block-8-5"></a>--verbose</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="ex">qiime</span> feature-table summarize <span class="dt">\ </span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1" aria-label="code-block-9-2"></a><span class="ex">--i-table</span> analysis/dada2out/table.qza <span class="dt">\ </span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1" aria-label="code-block-9-3"></a><span class="ex">--m-metadata-file</span> dunnart_metadata.tsv <span class="dt">\ </span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1" aria-label="code-block-9-4"></a><span class="ex">--output-dir</span> analysis/visualisations/summary_table <span class="dt">\ </span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1" aria-label="code-block-9-5"></a><span class="ex">--verbose</span> </span></code></pre>
 </div>
 <div id="visualisations-featureasv-summary" class="callout challenge">
 <div class="callout-square">
@@ -1010,12 +1041,12 @@ to your local computer and view in QIIME 2 View (q2view).</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2Fhkvk2yqpnm4w9oy64maf3%2F16s_table.qzv%3Frlkey%3Dtm368u59rexzgdwpm9m6l11l1%26dl%3D1" class="external-link">Click
 to view the <strong><code>summary.qzv</code></strong> file in QIIME 2
@@ -1027,13 +1058,13 @@ in the top left hand corner.<br><img src=".././files/q2view_ASV_detail.png" alt=
 </div>
 </div>
 <p><br></p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="ex">qiime</span> feature-table tabulate-seqs <span class="dt">\</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1" aria-label="code-block-9-2"></a>--i-data analysis/dada2out/representative_sequences.qza <span class="dt">\</span></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1" aria-label="code-block-9-3"></a>--o-visualization analysis/visualisations/16s_representative_seqs.qzv <span class="dt">\</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1" aria-label="code-block-9-4"></a>--verbose</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="ex">qiime</span> feature-table tabulate-seqs <span class="dt">\</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1" aria-label="code-block-10-2"></a>--i-data analysis/dada2out/representative_sequences.qza <span class="dt">\</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1" aria-label="code-block-10-3"></a>--o-visualization analysis/visualisations/16s_representative_seqs.qzv <span class="dt">\</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1" aria-label="code-block-10-4"></a>--verbose</span></code></pre>
 </div>
 <div id="visualisation-representative-sequences" class="callout challenge">
 <div class="callout-square">
@@ -1048,12 +1079,12 @@ to your local computer and view in QIIME 2 View (q2view).</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
-  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
+  <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p><a href="https://view.qiime2.org/visualization/?type=html&amp;src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2F2uesky0zntkapxhlr58gu%2F16s_representative_seqs.qzv%3Frlkey%3Dakmmi05wpcwommjuytgub2grk%26dl%3D1" class="external-link">Click
 to view the <strong><code>16s_representative_seqs.qzv</code></strong>
@@ -1090,7 +1121,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-03-taxonomy"><p>Content from <a href="03-taxonomy.html">Taxonomic Analysis</a></p>
 <hr>
-<p>Last updated on 2026-04-17 |
+<p>Last updated on 2026-04-20 |
 
         <a href="https://example.com/template-source/lesson-example/edit/main/episodes/03-taxonomy.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 12 minutes</p>
@@ -1129,7 +1160,7 @@ from the feature table.</li>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="section-2-taxonomic-analysis">Section 2: Taxonomic Analysis<a class="anchor" aria-label="anchor" href="#section-2-taxonomic-analysis"></a>
+<section><h2 class="section-heading" id="taxonomic-analysis">Taxonomic Analysis<a class="anchor" aria-label="anchor" href="#taxonomic-analysis"></a>
 </h2>
 <hr class="half-width">
 <div class="section level3">
@@ -1137,7 +1168,7 @@ from the feature table.</li>
 </h3>
 <p>Here we will classify each identical read or <em>Amplicon Sequence
 Variant (ASV)</em> to the highest resolution based on a database. Common
-databases for bacteria datasets are <a href="https://www.arb-silva.de/" class="external-link">SILVA</a>, <a href="http://rdp.cme.msu.edu/" class="external-link">Ribosomal Database Project</a>, or <a href="https://gtdb.ecogenomic.org/" class="external-link">Genome Taxonomy Database</a>. See <a href="https://www.frontiersin.org/articles/10.3389/fevo.2020.00248/full" class="external-link">Porter
+databases for bacteria datasets are <a href="https://www.arb-silva.de/" class="external-link">SILVA</a>, <a href="http://rdp.cme.msu.edu/" class="external-link">Ribosomal Database Project</a>*, or <a href="https://gtdb.ecogenomic.org/" class="external-link">Genome Taxonomy Database</a>. See <a href="https://www.frontiersin.org/articles/10.3389/fevo.2020.00248/full" class="external-link">Porter
 and Hajibabaei, 2020</a> for a review of different classifiers for
 metabarcoding research. The classifier chosen is dependent upon:</p>
 <ol style="list-style-type: decimal">
@@ -1152,6 +1183,21 @@ take a while to run. <em>The output directory cannot previously
 exist</em>.</p>
 <p><code>n_jobs = 1</code> This runs the script using all available
 cores</p>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> *A Note on the Ribosomal Data Project </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div class="accordion-body">
+<p>As of the time of writing, the Ribosomal Data Project website is no
+longer available. You can find a standalone version of the RDP
+Classifier 2.14 released in August 2023 on <a href="https://sourceforge.net/p/rdp-classifier/news/2023/08/rdp-classifier-214-august-2023-released/" class="external-link">Sourgeforce</a>
+and <a href="https://zenodo.org/records/10367203" class="external-link">Zenodo</a>.</p>
+</div>
+</div>
+</div>
+</div>
 <div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -1273,11 +1319,11 @@ necessary under the ASV model.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1" aria-label="code-block-4-1"></a><span class="ex">qiime</span> feature-table summarize <span class="dt">\</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1" aria-label="code-block-4-2"></a>--i-table analysis/taxonomy/16s_table_filtered.qza <span class="dt">\</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1" aria-label="code-block-4-3"></a>--m-sample-metadata-file dunnart_metadata.tsv <span class="dt">\</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1" aria-label="code-block-4-4"></a>--o-visualization analysis/visualisations/summary_table_filtered <span class="dt">\</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1" aria-label="code-block-4-5"></a>--verbose</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1" aria-label="code-block-4-1"></a><span class="ex">qiime</span> feature-table summarize <span class="dt">\ </span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1" aria-label="code-block-4-2"></a><span class="ex">--i-table</span> analysis/taxonomy/16s_table_filtered.qza <span class="dt">\ </span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1" aria-label="code-block-4-3"></a><span class="ex">--m-metadata-file</span> dunnart_metadata.tsv <span class="dt">\ </span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1" aria-label="code-block-4-4"></a><span class="ex">--output-dir</span> analysis/visualisations/summary_table_filtered <span class="dt">\ </span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1" aria-label="code-block-4-5"></a><span class="ex">--verbose</span> </span></code></pre>
 </div>
 <div id="visualisation-featureasv-summary-filtered" class="callout challenge">
 <div class="callout-square">
@@ -2233,8 +2279,8 @@ any links that you are not going to use.
   "url": "melbournebioinformatics.github.io/uom-varnish/instructor/aio.html",
   "identifier": "melbournebioinformatics.github.io/uom-varnish/instructor/aio.html",
   "dateCreated": "2026-04-02",
-  "dateModified": "2026-04-17",
-  "datePublished": "2026-04-17"
+  "dateModified": "2026-04-20",
+  "datePublished": "2026-04-20"
 }
 
   </script><script>
