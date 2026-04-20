@@ -176,10 +176,6 @@ This step may take a long time to run (i.e. hours), depending on file sizes and 
 
 Remember to adjust `--p-trunc-len-f` and `--p-trunc-len-r` according to your own data.
 
-Overlap = (forward truncation length + reverse truncation length) − amplicon length.
-
-For this amplicon, the expected length is ~255 bp. Try a few sensible truncation-length combinations and compare read retention and merging success.
-
 :::
 
 In the following command, a pooling method of 'pseudo' is selected. Pseudo-pooling improves sensitivity to shared low-abundance ASVs across samples while remaining computationally efficient. This is better than the default of 'independent' (where samples are denoised independently) when you expect samples in the run to have similar ASVs overall.
@@ -195,6 +191,7 @@ Due to computational limitations in a workshop setting, this command will be run
 
 *The specified output directory must not pre-exist.*  
 
+
 ```bash
 qiime dada2 denoise-paired \
 --i-demultiplexed-seqs analysis/seqs_trimmed/trimmed_sequences.qza \
@@ -205,6 +202,30 @@ qiime dada2 denoise-paired \
 --output-dir analysis/dada2out \
 --verbose
 ```
+
+
+::::::::::::::::::::::::::::::::::::: challenge
+
+#### Calculating truncation lengths
+
+The above code for you likely didn't work if you didn't adjust the truncation length from `xxx` to an integer!
+
+Overlap = (forward truncation length + reverse truncation length) − amplicon length.
+
+For this amplicon, the expected length is ~255 bp. Try a few sensible truncation-length combinations and compare read retention and merging success.
+
+:::::::::::::::: solution
+
+``` bash
+
+--p-trunc-len-f 210 \ 
+--p-trunc-len-r 170 \ 
+
+```
+
+:::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::
+
 
 
 ### Generate summary files
@@ -256,11 +277,11 @@ Copy `analysis/visualisations/16s_denoising_stats.qzv` to your local computer an
 
 <br>
 ```bash
-qiime feature-table summarize \
---i-table analysis/dada2out/table.qza \
---m-sample-metadata-file dunnart_metadata.tsv \
---o-visualization analysis/visualisations/summary_table \
---verbose
+qiime feature-table summarize \ 
+--i-table analysis/dada2out/table.qza \ 
+--m-metadata-file dunnart_metadata.tsv \ 
+--output-dir analysis/visualisations/summary_table \ 
+--verbose 
 ```
 
 
