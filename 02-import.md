@@ -216,11 +216,17 @@ For this amplicon, the expected length is ~255 bp. Try a few sensible truncation
 
 :::::::::::::::: solution
 
-``` bash
+Change this part of the command from:
 
+``` bash
+--p-trunc-len-f xxx \
+--p-trunc-len-r xxx \
+```
+to:
+
+``` bash
 --p-trunc-len-f 210 \ 
 --p-trunc-len-r 170 \ 
-
 ```
 
 :::::::::::::::::::::::::
