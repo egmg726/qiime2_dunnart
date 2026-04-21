@@ -40,13 +40,13 @@
   <div class="container-fluid top-nav-container">
     <div class="col-md-8">
       <div class="large-logo">
-        <img id="uom-logo" alt="uom" src="assets/images/uom-logo.svg"><span class="badge text-bg-danger">
-          <abbr title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.">
+        <img id="uom-logo" alt="uom" src="assets/images/uom-logo.svg"><span class="badge text-bg-info">
+          <abbr title="This lesson is in the beta phase, which means that it is ready for teaching by instructors outside of the original author team.">
             <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="external-link alert-link">
-              <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
-              Pre-Alpha
+              <i aria-hidden="true" class="icon" data-feather="alert-circle" style="border-radius: 5px"></i>
+              Beta
             </a>
-            <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
+            <span class="visually-hidden">This lesson is in the beta phase, which means that it is ready for teaching by instructors outside of the original author team.</span>
           </abbr>
         </span>
 
@@ -837,7 +837,7 @@ your local computer and view in <a href="https://view.qiime2.org" class="externa
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p><a href="https://view.qiime2.org/visualization/?src=https://www.dropbox.com/scl/fo/romu76hw5alep6qj4xfws/AAF9YHZ2oAZQ48Kl-k1Jvyo/trimmed_sequences.qzv?rlkey=z0rtnozon2hlic4ba6i30c301" class="external-link">Click
 to view the <strong><code>trimmed_sequences.qzv</code></strong> file in
@@ -927,7 +927,7 @@ success.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Change this part of the command from:</p>
 <div class="codewrapper sourceCode" id="cb7">
@@ -990,6 +990,23 @@ may need to be excluded later.</p></li>
 </div>
 </div>
 </div>
+<div id="stop---workshop-participants-only" class="callout caution">
+<div class="callout-square">
+<i class="callout-icon" data-feather="alert-triangle"></i>
+</div>
+<span class="callout-header">Caution</span>
+<div id="stop---workshop-participants-only" class="callout-inner">
+<h3 class="callout-title">STOP - workshop participants only</h3>
+<div class="callout-content">
+<p>Due to time limitations in a workshop setting, please do NOT run the
+commands below. You will need to access pre-computed files that this
+command generates by running the following:
+<code>cd; mkdir analysis/dada2out; cp /mnt/shared_data/pre_computed/dada2out/* analysis/dada2out</code>.
+If you have accidentally run the command below, <code>ctrl-c</code> will
+terminate it.</p>
+</div>
+</div>
+</div>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1016,7 +1033,7 @@ your local computer and view in QIIME 2 View (q2view).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p><a href="https://view.qiime2.org/visualization/?src=https://www.dropbox.com/scl/fo/romu76hw5alep6qj4xfws/AAsCKOqmM-t2RhSr39K7E_g/16s_denoising_stats.qzv?rlkey=z0rtnozon2hlic4ba6i30c301" class="external-link">Click
 to view the <strong><code>16s_denoising_stats.qzv</code></strong> file
@@ -1053,7 +1070,7 @@ to your local computer and view in QIIME 2 View (q2view).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p><a href="https://view.qiime2.org/visualization/?src=https://www.dropbox.com/scl/fo/romu76hw5alep6qj4xfws/ADpnQOqVK-JD1zIkLejSfmY/summary_table/summary.qzv?rlkey=z0rtnozon2hlic4ba6i30c301" class="external-link">Click
 to view the <strong><code>summary.qzv</code></strong> file in QIIME 2
@@ -1091,7 +1108,7 @@ to your local computer and view in QIIME 2 View (q2view).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p><a href="https://view.qiime2.org/visualization/?src=https://www.dropbox.com/scl/fo/romu76hw5alep6qj4xfws/AHIIyoQHzEzPyoEXzjBVxBc/16s_representative_seqs.qzv?rlkey=z0rtnozon2hlic4ba6i30c301" class="external-link">Click
 to view the <strong><code>16s_representative_seqs.qzv</code></strong>
@@ -1211,30 +1228,12 @@ and <a href="https://zenodo.org/records/10367203" class="external-link">Zenodo</
 <span class="callout-header">Callout</span>
 <div class="callout-inner">
 <div class="callout-content">
-<p><a href="https://www.dropbox.com/scl/fi/s42p5fif7szzm38swcu0m/silva_138_16s_515-806_classifier.qza?rlkey=ss983qau9rwgztis2gfulhjcz&amp;dl=0" class="external-link">The
+<p><a href="https://www.dropbox.com/scl/fi/5eg7gqeczdzjf287o20p6/silva_138.2_16s_v4_classifier.qza?rlkey=a8gde5oggidosqxapqw44kdum&amp;st=axl7llhj&amp;dl=0" class="external-link">The
 classifier</a> used here is only appropriate for the specific 16S rRNA
 region that <em>this</em> data represents. You will need to train your
 own classifier for your own data. For more information about training
 your own classifier, see <a href="./07-extra-info.html#train-silva-v138-classifier-for-16s18s-rrna-gene-marker-sequences-">Extra
 Information</a>.</p>
-</div>
-</div>
-</div>
-<div id="stop---workshop-participants-only" class="callout caution">
-<div class="callout-square">
-<i class="callout-icon" data-feather="alert-triangle"></i>
-</div>
-<span class="callout-header">Caution</span>
-<div id="stop---workshop-participants-only" class="callout-inner">
-<h3 class="callout-title">STOP - workshop participants only</h3>
-<div class="callout-content">
-<p>Due to time limitations in a workshop setting, please do NOT run the
-<code>qiime feature-classifier classify-sklearn</code> command below.
-You will need to access a pre-computed <code>classification.qza</code>
-file that this command generates by running the following:
-<code>cd; mkdir analysis/taxonomy; cp /mnt/shared_data/pre_computed/classification.qza analysis/taxonomy</code>.
-If you have accidentally run the command below, <code>ctrl-c</code> will
-terminate it.</p>
 </div>
 </div>
 </div>
@@ -1248,7 +1247,7 @@ terminate it.</p>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1" aria-label="code-block-1-5"></a>--output-dir analysis/taxonomy <span class="dt">\</span></span>
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1" aria-label="code-block-1-6"></a>--verbose</span></code></pre>
 </div>
-<div id="caution2" class="callout caution">
+<div id="caution1" class="callout caution">
 <div class="callout-square">
 <i class="callout-icon" data-feather="alert-triangle"></i>
 </div>
