@@ -97,7 +97,7 @@ Copy `analysis/visualisations/taxonomy.qzv` to your local computer and view in Q
 
 :::::::::::::::: solution
 
-[Click to view the **`taxonomy.qzv`** file in QIIME 2 View](https://view.qiime2.org/visualization/?src=https://www.dropbox.com/scl/fi/85yry9kt88fd145cgg55c/taxonomy.qzv?rlkey=etm09ph3h5wtyg3c247jbx383).
+[Click to view the **`taxonomy.qzv`** file in QIIME 2 View](https://view.qiime2.org/visualization/?src=https://www.dropbox.com/scl/fo/romu76hw5alep6qj4xfws/AHM-SIH5EEGMxhpwz8vbpG8/taxonomy.qzv?rlkey=z0rtnozon2hlic4ba6i30c301).
 
 :::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::    
@@ -137,7 +137,7 @@ Copy `analysis/visualisations/summary_table_filtered/summary.qzv` to your local 
 
 :::::::::::::::: solution
 
-[Click to view the **`summary.qzv`** file in QIIME 2 View](https://view.qiime2.org/visualization/?src=https%3A%2F%2Fdl.dropboxusercontent.com%2Fscl%2Ffi%2F9c1m746lxuplmwb79gldo%2F16s_table_filtered.qzv%3Frlkey%3D9iz32202xm36rfac3r7i50wtx%26dl%3D1&type=html).
+[Click to view the **`summary.qzv`** file in QIIME 2 View](https://view.qiime2.org/visualization/?src=https://www.dropbox.com/scl/fo/romu76hw5alep6qj4xfws/AFgPkLgEwPhYoS_BaZekjMw/summary_table_filtered/summary.qzv?rlkey=z0rtnozon2hlic4ba6i30c301).
 
 
 :::::::::::::::::::::::::
